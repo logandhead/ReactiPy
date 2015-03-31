@@ -1,5 +1,5 @@
 # ReactiPy
-Compile React Components Server Side using Python 
+Compile react components server side using Python 
 ```python
 from reactipy.component import ReactComponent
 import os
