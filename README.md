@@ -1,5 +1,6 @@
 # ReactiPy
-Compile react components server side using Python 
+Render a react component to html  using python  for faster page loads and to allow search engines to crawl your pages for SEO purposes.
+
 ```python
 from reactipy.component import ReactComponent
 import os
