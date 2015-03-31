@@ -1,6 +1,6 @@
 #!/bin/bash
 
-from reactipy.settings import NODE_ENVIRONMENT_DIRECTORY, NODE_ACTIVATE_PATH, \
+from .settings import NODE_ENVIRONMENT_DIRECTORY, NODE_ACTIVATE_PATH, \
     NPM_ENV, ROOT
 
 import subprocess

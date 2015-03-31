@@ -1,17 +1,12 @@
 from reactipy.component import ReactComponent
 import os
 
-# Define your component
-class MyComponent(ReactComponent):
-    path = os.path.join(os.path.dirname(os.path.abspath(__file__)),
-                        'components/helloworld.js')
-    props = {'items': ['Home', 'Services', 'About', 'Contact us']}
-    props_reference = 'test123'
 
+class HelloWorldComponent(ReactComponent):
+    path = os.path.join(
+        os.path.dirname(os.path.abspath(__file__)),
+        'components/helloworld.js')
 
-component = MyComponent()
-print component.render()
+component = HelloWorldComponent()
 
-
-
-
+print component.render(props=['Hello', 'World'])

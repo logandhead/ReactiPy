@@ -1,1 +1,1 @@
-nodeenv==0.13.1
+nodeenv=uo=0.13.1

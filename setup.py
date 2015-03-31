@@ -1,19 +1,24 @@
-from setuptools import setup
+from setuptools import setup, find_packages
+from codecs import open
+from os import path
 
+here = path.abspath(path.dirname(__file__))
+
+with open(path.join(here, 'DESCRIPTION.rst'), encoding='utf-8') as f:
+    long_description = f.read()
 
 
 setup(
     name='ReactiPy',
 
-    # Versions should comply with PEP440.  For a discussion on single-sourcing
-    # the version across setup.py and the project code, see
-    # https://packaging.python.org/en/latest/single_source_version.html
-    version='0.0.1',
+    version='0.0.93',
 
     description='Compiles React Components server side using python',
 
+    long_description=long_description,
+
     # The project's main homepage.
-    url='https://github.com/logandhead/sampleproject',
+    url='https://github.com/logandhead/ReactiPy',
 
     # Author details
     author='Logan Head',
@@ -24,31 +29,19 @@ setup(
 
     # See https://pypi.python.org/pypi?%3Aaction=list_classifiers
     classifiers=[
-        # How mature is this project? Common values are
-        # 3 - Alpha
-        #   4 - Beta
-        #   5 - Production/Stable
+
         'Development Status :: 3 - Alpha',
 
-        # Indicate who your project is intended for
         'Intended Audience :: Developers',
         'Topic :: Software Development :: Build Tools',
 
-        # Pick your license as you wish (should match "license" above)
         'License :: OSI Approved :: MIT License',
     ],
 
     # What does your project relate to?
     keywords='react jsx compile react.js reactjs facebook',
-
-
-    package_data={
-        'reactipy': [
-            'reactipy/package.json',
-            'reactipy/reactipy.js',
-        ]
-    },
-
+    packages=find_packages(),
+    package_data={'': ['*.json', '*.js']},
     install_requires=['nodeenv==0.13.1'],
 
 

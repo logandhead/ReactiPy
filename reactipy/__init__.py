@@ -1,6 +1,8 @@
-from reactipy.node_env import NodeEnv
-from reactipy.component import ReactComponent
+from .node_env import NodeEnv
+from .component import ReactComponent
 
 NodeEnv()
+
+
 
 
