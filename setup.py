@@ -11,7 +11,7 @@ with open(path.join(here, 'DESCRIPTION.rst'), encoding='utf-8') as f:
 setup(
     name='ReactiPy',
 
-    version='0.0.93',
+    version='0.0.995',
 
     description='Compiles React Components server side using python',
 
@@ -29,12 +29,9 @@ setup(
 
     # See https://pypi.python.org/pypi?%3Aaction=list_classifiers
     classifiers=[
-
         'Development Status :: 3 - Alpha',
-
         'Intended Audience :: Developers',
         'Topic :: Software Development :: Build Tools',
-
         'License :: OSI Approved :: MIT License',
     ],
 
@@ -42,7 +39,5 @@ setup(
     keywords='react jsx compile react.js reactjs facebook',
     packages=find_packages(),
     package_data={'': ['*.json', '*.js']},
-    install_requires=['nodeenv==0.13.1'],
-
-
+    install_requires=['nodeenv==0.13.1']
 )
