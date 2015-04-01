@@ -11,7 +11,7 @@ with open(path.join(here, 'DESCRIPTION.rst'), encoding='utf-8') as f:
 setup(
     name='ReactiPy',
 
-    version='0.0.995',
+    version='0.1.0',
 
     description='Compiles React Components server side using python',
 
