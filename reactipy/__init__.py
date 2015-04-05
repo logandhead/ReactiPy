@@ -1,8 +1,6 @@
 from .node_env import NodeEnv
 from .component import ReactComponent
-
-NodeEnv()
-
+from .renderer import ReactiPy
 
 
 
