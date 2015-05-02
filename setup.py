@@ -38,6 +38,6 @@ setup(
     # What does your project relate to?
     keywords='react jsx compile react.js reactjs facebook node',
     packages=find_packages(),
-    package_data={'': ['*.json', '*.js']},
+    package_data={'': ['js/*.js', 'js/*.json']},
     install_requires=['nodeenv==0.13.1']
 )

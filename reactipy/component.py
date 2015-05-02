@@ -1,50 +1,47 @@
-from .settings import NODE_ENV, REACTIPY_JS
+from .settings import NODE_ENV,  REACTIPY_JS, NODE_ACTIVATE_PATH
 import exceptions as exceptions
 import json
-import subprocess
+from subprocess import Popen, PIPE, STDOUT
+import os
 
 
 class ReactComponent(object):
     path = None
     static = True
     props = None
-    container = None
+    container = 'hellow'
     cmd = None
-    props_reference = 'hello'
+    props_reference = 'App_Props'
+    name = None
 
-    def __init__(self, container=None, props_reference=None):
+    def __init__(self, name, path):
         # As we use the subclass's name to generate a number of client-side
         # variables, we disallow directly calling the ReactComponent class
-        if self.__class__ is ReactComponent:
-            raise ('Components must inherit from ReactComponent')
-        # Sanity check
-        if self.get_path() is None:
-            raise ('Path not specified')
-
-        self.container = container
-        self.props_reference = props_reference
+        self.name = name
+        self.path = path
 
     def render(self, **kwargs):
         if kwargs:
             self.props = kwargs
 
-        return self.compile_component()
+        rendered = self._compile_component()
+        return rendered
 
     def render_to_string(self, **kwargs):
         if kwargs:
             self.props = kwargs
 
         self.static = False
-        string_html = self.compile_component()
+        string_html = self._compile_component()
         self.static = True
 
         return string_html
 
-    def build_input(self):
-        self.cmd = [NODE_ENV, REACTIPY_JS,
+    def _build_input(self):
+        self.cmd = [
+                    NODE_ENV, REACTIPY_JS,
                     '--path-to-source', self.path,
                     '--static-markup', '1' if self.static else '0',
-
                     '--props-reference', str(self.props_reference)]
 
         if self.props:
@@ -55,18 +52,16 @@ class ReactComponent(object):
             self.cmd.append('--component-container')
             self.cmd.append(self.container)
 
-    def compile_component(self):
-        self.build_input()
-        try:
-            pipe = subprocess.Popen(self.cmd, stdout=subprocess.PIPE)
-            pipe.wait()
-            results = pipe.communicate()[0]
-            return results
-        except exceptions.NodeCompileError:
-            return None
+    def _compile_component(self):
+        self._build_input()
+        self.process = Popen(self.cmd, stdout=PIPE, stdin=PIPE)
+        self.process.wait()
+        print self.process.communicate()
 
-    def get_path(self):
-        return self.path
+
+
+def get_path(self):
+    return self.path
 
 
 

@@ -8,3 +8,7 @@ class NodeInstallationException(Exception):
 
 class NpmDirectory(Exception):
     pass
+
+
+class ReactComponentNotFound(Exception):
+    pass

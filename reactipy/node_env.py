@@ -1,4 +1,3 @@
-#!/bin/bash
 
 from .settings import NODE_ENVIRONMENT_DIRECTORY, NODE_ACTIVATE_PATH, \
     NPM_ENV, NODE_ENV, ROOT
@@ -15,6 +14,7 @@ class NodeEnv():
     def __init__(self):
         if not self.node_exist():
             self.install_node_environment()
+
 
     def node_exist(self):
         return os.path.isfile(self.node_env) and os.path.isfile(self.npm_env)
