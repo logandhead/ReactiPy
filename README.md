@@ -1,4 +1,6 @@
 # ReactiPy
+
+## Deprecated *I currently do not have the time to maintain this project. Please message me if you would like to take over this project*
 Compile react components server side using Python 
 ```python
 from reactipy.component import ReactComponent
